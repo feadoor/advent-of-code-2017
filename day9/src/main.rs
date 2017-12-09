@@ -1,8 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 struct StringStats {
     pub score: u64,
@@ -58,12 +57,12 @@ fn stats(input: &str) -> StringStats {
 }
 
 fn part1() {
-    let input = read_file_to_string(PART_1_INPUT_PATH);
+    let input = read_file_to_string(INPUT_PATH);
     println!("The answer to Part 1 is {}", stats(&input).score);
 }
 
 fn part2() {
-    let input = read_file_to_string(PART_2_INPUT_PATH);
+    let input = read_file_to_string(INPUT_PATH);
     println!("The answer to Part 2 is {}", stats(&input).garbage_chars);
 }
 

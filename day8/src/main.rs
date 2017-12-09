@@ -8,8 +8,7 @@ use std::collections::{HashMap};
 use std::cmp;
 use regex::Regex;
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 enum Instruction {
     Increment(String, i64),
@@ -139,7 +138,7 @@ fn read_program_lines_from_file(path: &str) -> Vec<String> {
 
 fn part1() {
     let mut cpu = Cpu::new();
-    let program = read_program_lines_from_file(PART_1_INPUT_PATH);
+    let program = read_program_lines_from_file(INPUT_PATH);
     for line in program {
         let parsed_line = parse_program_line(&line);
         cpu.apply_program_line(&parsed_line);
@@ -150,7 +149,7 @@ fn part1() {
 
 fn part2() {
     let mut cpu = Cpu::new();
-    let program = read_program_lines_from_file(PART_2_INPUT_PATH);
+    let program = read_program_lines_from_file(INPUT_PATH);
     let mut max_register_value = i64::min_value();
 
     for line in program {
@@ -161,7 +160,7 @@ fn part2() {
         }
     }
 
-    println!("The answer to Part 1 is {}", max_register_value);
+    println!("The answer to Part 2 is {}", max_register_value);
 }
 
 fn main() {

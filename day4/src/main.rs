@@ -2,8 +2,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::collections::HashSet;
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 fn read_words_from_file(path: &str) -> Vec<String> {
     let file = File::open(path).expect("Unable to open file");
@@ -37,14 +36,14 @@ fn is_valid_with_anagrams(passphrase: &str) -> bool {
 }
 
 fn part1() {
-    let passphrases = read_words_from_file(PART_1_INPUT_PATH);
+    let passphrases = read_words_from_file(INPUT_PATH);
     let answer = passphrases.iter().filter(|pass| is_valid(pass)).count();
 
     println!("The answer to Part 1 is {}", answer);
 }
 
 fn part2() {
-    let passphrases = read_words_from_file(PART_2_INPUT_PATH);
+    let passphrases = read_words_from_file(INPUT_PATH);
     let answer = passphrases.iter().filter(|pass| is_valid_with_anagrams(pass)).count();
 
     println!("The answer to Part 2 is {}", answer);

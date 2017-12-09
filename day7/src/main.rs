@@ -2,8 +2,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::collections::{HashMap};
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 struct TowerItem {
     weight: u64,
@@ -141,12 +140,12 @@ fn read_tower_from_file(path: &str) -> Tower {
 }
 
 fn part1() {
-    let tower = read_tower_from_file(PART_1_INPUT_PATH);
+    let tower = read_tower_from_file(INPUT_PATH);
     println!("The answer to Part 1 is {}", tower.get_root());
 }
 
 fn part2() {
-    let tower = read_tower_from_file(PART_2_INPUT_PATH);
+    let tower = read_tower_from_file(INPUT_PATH);
     let answer = tower.get_adjustment_needed_to_balance().1;
     println!("The answer to Part 2 is {}", answer);
 }

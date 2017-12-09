@@ -1,8 +1,7 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 fn read_maze_from_file(path: &str) -> Vec<i64> {
     let file = File::open(path).expect("Unable to open file");
@@ -34,13 +33,13 @@ fn steps_to_exit_with_rule<F: Fn(i64) -> i64>(maze: &mut [i64], rule: F) -> u64 
 
 
 fn part1() {
-    let mut maze = read_maze_from_file(PART_1_INPUT_PATH);
+    let mut maze = read_maze_from_file(INPUT_PATH);
     let answer = steps_to_exit_with_rule(&mut maze, |offset| offset + 1);
     println!("The answer to Part 1 is {}", answer);
 }
 
 fn part2() {
-    let mut maze = read_maze_from_file(PART_2_INPUT_PATH);
+    let mut maze = read_maze_from_file(INPUT_PATH);
     let answer = steps_to_exit_with_rule(
         &mut maze,
         |offset| if offset >= 3 { offset - 1 } else { offset + 1 }

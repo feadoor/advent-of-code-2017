@@ -1,7 +1,7 @@
 use std::fs::File;
 use std::io::{BufReader, BufRead};
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 fn read_spreadsheet_from_file(path: &str) -> Vec<Vec<u64>> {
     let file = File::open(path).expect("Unable to open file");
@@ -34,12 +34,12 @@ fn sum_of_even_divisions(spreadsheet: &[Vec<u64>]) -> u64 {
 }
 
 fn part1() {
-    let spreadsheet = read_spreadsheet_from_file(PART_1_INPUT_PATH);
+    let spreadsheet = read_spreadsheet_from_file(INPUT_PATH);
     println!("The answer to Part 1 is {}", checksum(&spreadsheet));
 }
 
 fn part2() {
-    let spreadsheet = read_spreadsheet_from_file(PART_1_INPUT_PATH);
+    let spreadsheet = read_spreadsheet_from_file(INPUT_PATH);
     println!("The answer to Part 2 is {}", sum_of_even_divisions(&spreadsheet));
 }
 

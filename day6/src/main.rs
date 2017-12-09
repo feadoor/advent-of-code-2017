@@ -2,8 +2,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::collections::HashMap;
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 fn read_vector_from_file(path: &str) -> Vec<u64> {
     let mut file = File::open(path).expect("Unable to open file");
@@ -57,13 +56,13 @@ fn period_of_redistribution(memory_bank: &[u64]) -> (usize, usize) {
 }
 
 fn part1() {
-    let memory_bank = read_vector_from_file(PART_1_INPUT_PATH);
+    let memory_bank = read_vector_from_file(INPUT_PATH);
     let (period, tail) = period_of_redistribution(&memory_bank);
     println!("The answer to Part 1 is {}", tail + period);
 }
 
 fn part2() {
-    let memory_bank = read_vector_from_file(PART_2_INPUT_PATH);
+    let memory_bank = read_vector_from_file(INPUT_PATH);
     let (period, _) = period_of_redistribution(&memory_bank);
     println!("The answer to Part 2 is {}", period);
 }

@@ -1,8 +1,7 @@
 use std::fs::File;
 use std::io::prelude::*;
 
-const PART_1_INPUT_PATH: &'static str = "inputs/part1.txt";
-const PART_2_INPUT_PATH: &'static str = "inputs/part2.txt";
+const INPUT_PATH: &'static str = "inputs/input.txt";
 
 fn sum_of_digits_equal_to_partner<F: Fn(usize) -> usize>(input: &[u8], partner_index: F) -> u64 {
     input.iter().enumerate()
@@ -31,13 +30,13 @@ fn read_file_to_string(path: &str) -> String {
 }
 
 fn part1() {
-    let captcha = read_file_to_string(PART_1_INPUT_PATH);
+    let captcha = read_file_to_string(INPUT_PATH);
     let answer = sum_of_digits_equal_to_immediate_neighbour(&captcha.into_bytes());
     println!("The answer to Part 1 is {}", answer);
 }
 
 fn part2() {
-    let captcha = read_file_to_string(PART_2_INPUT_PATH);
+    let captcha = read_file_to_string(INPUT_PATH);
     let answer = sum_of_digits_equal_to_halfway_partner(&captcha.into_bytes());
     println!("The answer to Part 2 is {}", answer);
 }
