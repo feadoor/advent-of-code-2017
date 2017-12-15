@@ -28,15 +28,18 @@ impl Iterator for Generator {
     }
 }
 
+fn matching_pairs(gen_a: Generator, gen_b: Generator, iterations: usize) -> usize {
+    gen_a.zip(gen_b)
+        .take(iterations)
+        .filter(|&(a, b)| a as u16 == b as u16)
+        .count()
+}
+
 fn part1() {
     let generator_a = Generator::new(16807, 618, 1);
     let generator_b = Generator::new(48271, 814, 1);
 
-    let answer = generator_a.zip(generator_b)
-        .take(40_000_000)
-        .filter(|&(a, b)| a as u16 == b as u16)
-        .count();
-
+    let answer = matching_pairs(generator_a, generator_b, 40_000_000);
     println!("The answer to Part 1 is {}", answer);
 }
 
@@ -44,11 +47,7 @@ fn part2() {
     let generator_a = Generator::new(16807, 618, 4);
     let generator_b = Generator::new(48271, 814, 8);
 
-    let answer = generator_a.zip(generator_b)
-        .take(5_000_000)
-        .filter(|&(a, b)| a as u16 == b as u16)
-        .count();
-
+    let answer = matching_pairs(generator_a, generator_b, 5_000_000);
     println!("The answer to Part 1 is {}", answer);
 }
 
